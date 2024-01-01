@@ -5,10 +5,10 @@
 // import { resizeImage } from '../utils/image';
 // import Link from 'next/link';
 
-// // type PublicationFooterProps = Pick<Publication, 'title' | 'postsCount' | 'imprint' | 'isTeam'> &
-// //   Pick<Publication['preferences'], 'disableFooterBranding' | 'logo' | 'darkMode'> & {
-// //     authorName: string;
-// //   }; // TODO: types need to be fixed
+// type PublicationFooterProps = Pick<Publication, 'title' | 'postsCount' | 'imprint' | 'isTeam'> &
+//   Pick<Publication['preferences'], 'disableFooterBranding' | 'logo' | 'darkMode'> & {
+//     authorName: string;
+//   }; // TODO: types need to be fixed
 
 // function PublicationFooter(props: any) {
 //   const { isTeam, authorName, title, imprint, disableFooterBranding, logo } = props;
@@ -92,10 +92,16 @@ import PublicationSocialLinks from './publication-social-links';
 
 type Props = {
 	currentMenuId?: string | null;
-	isHome: boolean;
+	isHome?: boolean | false;
 };
 
-export default function MyFooter(props: Props) {
+// type MyFooter = Pick<Publication, 'title' | 'postsCount' | 'imprint' | 'isTeam'> &
+//   Pick<Publication['preferences'], 'disableFooterBranding' | 'logo' | 'darkMode'> & {
+//     authorName: string;
+//   }; // TODO: types need to be fixed
+
+export default function MyFooter(props: any) {
+	const { isTeam, authorName, title, imprint, disableFooterBranding, logo } = props;
 	const { publication } = useAppContext();
 	return (
 		<>
