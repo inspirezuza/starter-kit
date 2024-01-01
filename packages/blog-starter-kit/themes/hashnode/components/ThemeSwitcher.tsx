@@ -23,7 +23,7 @@ export const ThemeSwitcher = () => {
 							<MdWbSunny style={{ fontSize: '24px' }} />
 						</div>
 					) : (
-						<div>
+						<div className="text-cyan" >
 							<MdDarkMode style={{ fontSize: '24px' }} />
 						</div>
 					)}
