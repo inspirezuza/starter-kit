@@ -29,7 +29,7 @@ export const Header = (props: Props) => {
 						</div>
 					</div>
 
-					<div className="hidden md:block">
+					<div className="hidden md:block md:pr-32">
 						<PublicationSocialLinks links={publication.links} />
 					</div>
 					<div className={twJoin('flex flex-row items-center', 'dark:text-white')}>
@@ -39,7 +39,7 @@ export const Header = (props: Props) => {
 				</div>
 
 				{/* Logo for mobile view */}
-				<div className="mx-auto my-5 flex w-2/3 flex-row items-center justify-center md:hidden">
+				<div className="mx-auto my-2 flex w-2/3 flex-row items-center justify-center md:hidden">
 					<PublicationLogo publication={publication} size="xl" />
 				</div>
 

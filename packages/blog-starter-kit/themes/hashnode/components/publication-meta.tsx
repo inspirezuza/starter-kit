@@ -20,14 +20,15 @@ const PublicationMeta = (
 		<div className="blog-author-card mx-auto px-2 py-8 md:px-8 md:py-10">
 			<div className="flex flex-col flex-wrap items-center">
 				<div className="flex w-full flex-col items-center">
-					<div className="dark:text-cyan py-2 text-2xl font-extrabold text-teal-400">
+					<div className="dark:text-cyan py-2 text-3xl font-extrabold text-teal-400">
 						{' '}
 						About Me{' '}
 					</div>
+
 					{aboutHTML ? (
 						<div
 							className={twJoin(
-								'prose dark:prose-dark text-center',
+								'prose dark:prose-dark text-center text-lg',
 								isTeam ? 'lg:prose-xl max-w-full' : '',
 							)}
 							// eslint-disable-next-line react/no-danger

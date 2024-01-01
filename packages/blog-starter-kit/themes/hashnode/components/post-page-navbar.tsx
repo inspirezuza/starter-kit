@@ -17,8 +17,8 @@ import {
 	RequiredPublicationFieldsFragment,
 	User,
 } from '../generated/graphql';
-import { Button } from './custom-button';
 import PublicationLogo from './publication-logo';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 type Props = {
 	publication: Pick<
@@ -43,15 +43,8 @@ const PostPageNavbar = forwardRef<HTMLElement, Props>((props, ref) => {
 	return (
 		<div className="container mx-auto px-2 md:px-4 md:py-1 2xl:px-10">
 			<div className="relative z-40 flex flex-row items-center justify-between pb-2 pt-8 md:py-4">
-				<div
-					className={twJoin(
-						'mb-2 flex flex-row items-center md:mb-0','dark:text-white',
-					)}
-				>
-					<HeaderTooltip
-						tooltipClassName="blog-home-tooltip"
-						tooltipText="Home"
-					>
+				<div className={twJoin('mb-2 flex flex-row items-center md:mb-0', 'dark:text-white')}>
+					<HeaderTooltip tooltipClassName="blog-home-tooltip" tooltipText="Home">
 						<Link
 							href="/"
 							aria-label="Back to blog home"
@@ -70,25 +63,24 @@ const PostPageNavbar = forwardRef<HTMLElement, Props>((props, ref) => {
 						<PublicationLogo publication={publication} size="sm" withProfileImage isPostPage />
 					</div>
 				</div>
-
-				<div
-					className={twJoin(
-						'flex flex-row items-center','dark:text-white',
-					)}
-				>
+				<div className="hidden md:block md:pr-48">
+					<PublicationSocialLinks links={publication.links} />
+				</div>
+				<div className={twJoin('flex flex-row items-center', 'dark:text-white')}>
 					<HeaderBlogSearch publication={publication} />
-					<Button as="a" href="#" type="primary" label="Sign up" />
+					<ThemeSwitcher />
+					{/* <Button as="a" href="#" type="primary" label="Sign up" /> */}
 				</div>
 			</div>
 
 			{/* Logo for mobile view */}
-			<div className="mx-auto my-5 flex w-2/3 flex-row items-center justify-center md:hidden">
+			<div className="mx-auto my-2 flex w-2/3 flex-row items-center justify-center md:hidden">
 				<PublicationLogo publication={publication} size="xl" isPostPage />
 			</div>
 
 			<div className="blog-sub-header mb-4 md:hidden" data-testid="blog-sub-header">
 				{/* Social Links for mobile view */}
-				<div className="mt-6">
+				<div className="mt-1">
 					<PublicationSocialLinks links={publication.links} />
 				</div>
 			</div>
