@@ -156,14 +156,28 @@ export const PostHeader = ({ post, morePosts }: Props) => {
 						</h1>
 					</div>
 
+					{tags.length > 0 && (
+						<div className="mb-10 flex w-full flex-row flex-wrap justify-center">
+							{tags.map((tag) => (
+								<a
+									className="mb-2 mr-3 rounded-lg border bg-slate-100 px-2 py-1 text-base font-medium text-slate-700 hover:bg-slate-200 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+									key={tag._id}
+									href={`/tag/${tag.slug}?source=tags_bottom_blogs`}
+								>
+									<span>{tag.name}</span>
+								</a>
+							))}
+						</div>
+					)}
+
 					{/* Article subtitle */}
-					{post.subtitle && (
+					{/* {post.subtitle && (
 						<div className="font-heading mb-8 px-4 text-center md:mb-14 md:px-5 lg:px-8 xl:px-20">
 							<h2 className="text-2xl leading-snug text-slate-700 dark:text-slate-400 md:text-3xl xl:text-3xl">
 								{post.subtitle}
 							</h2>
 						</div>
-					)}
+					)} */}
 
 					<div className="relative z-20 mb-8 flex flex-row flex-wrap items-center justify-center px-4 md:-mt-7 md:mb-14 md:text-lg last:md:mb-10">
 						<div className="mb-5 flex w-full flex-row items-center justify-center md:mb-0 md:w-auto md:justify-start">
@@ -193,7 +207,7 @@ export const PostHeader = ({ post, morePosts }: Props) => {
 							)}
 							{!post.coAuthors?.length && (
 								<a
-									href={`https://hashnode.com/@${post.author.username}`}
+									href={`https://www.youtube.com/@faytodot`}
 									className="ml-2 font-semibold text-slate-600 dark:text-white md:ml-0"
 								>
 									<span>{post.author.name}</span>
@@ -292,23 +306,9 @@ export const PostHeader = ({ post, morePosts }: Props) => {
 							/>
 						</div>
 
-						{post.publication && post.publication?.features?.newsletter?.isEnabled && (
+						{/* {post.publication && post.publication?.features?.newsletter?.isEnabled && (
 							<PublicationSubscribeStandOut />
-						)}
-
-						{tags.length > 0 && (
-							<div className="mb-5 flex w-full flex-row flex-wrap justify-center md:mb-0">
-								{tags.map((tag) => (
-									<a
-										className="mb-2 mr-3 rounded-lg border bg-slate-100 px-2 py-1 text-base font-medium text-slate-700 hover:bg-slate-200 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-										key={tag._id}
-										href={`/tag/${tag.slug}?source=tags_bottom_blogs`}
-									>
-										<span>{tag.name}</span>
-									</a>
-								))}
-							</div>
-						)}
+						)} */}
 
 						<AboutAuthor />
 					</div>
