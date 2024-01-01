@@ -1,18 +1,25 @@
-import { AppProps } from 'next/app';
 import { withUrqlClient } from 'next-urql';
-import 'tailwindcss/tailwind.css'
+import { AppProps } from 'next/app';
+import 'tailwindcss/tailwind.css';
 
-import '../styles/index.css';
 import { GlobalFontVariables } from '../components/fonts';
 import { getUrqlClientConfig } from '../lib/api/client';
+import '../styles/index.css';
 
 import { Fragment } from 'react';
+
+import { NextUIProvider } from '@nextui-org/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<Fragment>
-			 <GlobalFontVariables />
-			 <Component {...pageProps} />
+			<GlobalFontVariables />
+			<NextUIProvider>
+				<NextThemesProvider attribute="class" defaultTheme="dark">
+					<Component {...pageProps} />{' '}
+				</NextThemesProvider>
+			</NextUIProvider>
 		</Fragment>
 	);
 }

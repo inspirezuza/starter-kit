@@ -22,7 +22,7 @@ import { createHeaders, createSSRExchange, getUrqlClientConfig } from '../lib/ap
 
 import FeaturedPosts from '../components/features-posts';
 
-import PublicationFooter from '../components/publication-footer';
+import MyFooter from '../components/MyFooter';
 import PublicationMeta from '../components/publication-meta';
 import { resizeImage } from '../utils/image';
 
@@ -138,9 +138,7 @@ export default function Index(
 					) : null}
 
 					{publication.about?.html ? (
-						<div
-							className="blog-author-container border-b dark:border-slate-800"
-						>
+						<div className="blog-author-container border-b dark:border-slate-800">
 							<div
 								className={twJoin(
 									'blog-author-area feed-width mx-auto md:w-3/4 lg:w-2/3',
@@ -170,7 +168,7 @@ export default function Index(
 						</div>
 					</div>
 
-					{postsToBeRendered.edges.length > 3 ? (
+					{postsToBeRendered.edges.length > 100 ? (
 						<ModernLayoutPosts
 							publication={publication}
 							posts={postsToBeRendered}
@@ -180,7 +178,7 @@ export default function Index(
 						/>
 					) : null}
 				</div>
-				{publication ? (
+				{/* {publication ? (
 					<PublicationFooter
 						authorName={publication.author.name}
 						title={publication.title}
@@ -190,7 +188,8 @@ export default function Index(
 						logo={publication.preferences.logo}
 						darkMode={publication.preferences.darkMode}
 					/>
-				) : null}
+				) : null} */}
+				<MyFooter isHome={true} />
 			</Layout>
 		</AppProvider>
 	);
